@@ -110,6 +110,15 @@
 
     <!-- [입력 단계] -->
     <section id="inputPortal" class="glass-card rounded-2xl p-6 md:p-10 transition-all duration-500">
+        <!-- 신규 추가: 사주 기반 번호 생성 안내 문구 -->
+        <div class="mb-8 p-4 rounded-xl bg-accent/5 border border-accent/20 text-center">
+            <p class="text-accent text-sm font-bold mb-1">⚠️ 단 한 번의 천기누설</p>
+            <p class="text-soft/60 text-xs leading-relaxed">
+                본 서비스는 사용자의 사주 오행과 당일의 우주 기운을 결합하여 분석합니다.<br>
+                <span class="text-accent/80 font-medium">해당 일자에는 단 한 번의 조합만이 도출</span>되오니, 경건한 마음으로 확인해 주시기 바랍니다.
+            </p>
+        </div>
+
         <div class="text-center mb-6">
             <h2 class="text-xl font-serif font-bold text-accent mb-1">운명의 정보 입력</h2>
             <p class="text-soft/50 text-xs font-light">정확한 생시를 입력할수록 분석이 정교해집니다.</p>
@@ -191,7 +200,7 @@
                 </div>
             </section>
             
-            <!-- [상세 해설 섹션 - 300자 내외로 조정됨] -->
+            <!-- [상세 해설 섹션] -->
             <section class="glass-card rounded-2xl p-6 md:p-8">
                 <h3 class="text-md font-serif font-bold text-accent mb-6 flex items-center justify-center gap-2">
                     📖 <span class="targetSaturday"></span> 운세 심층 해설
@@ -359,25 +368,17 @@
         });
     }
 
-    /**
-     * 상세 운세 작성 함수 (각 항목당 300자 내외로 조정)
-     */
     function writeInsights(name, rng) {
-        const pick = (arr) => arr[Math.floor(rng() * arr.length)];
-        
-        // 1. 타고난 성향과 오늘의 기운 (종합운) - 약 300자
         const totalText = [
             `<p><strong>${name}님</strong>은 통찰력이 뛰어나며 결심한 바를 끝까지 완수하는 <strong>강인한 의지</strong>를 지니셨습니다. 명리학적 관점에서 오늘 ${name}님의 운세는 봄비에 싹을 틔우는 대지와 같아, 내면의 아이디어가 실질적 성과로 전환되는 중요한 기점에 서 있습니다.</p>`,
-            `<p>현재 오행의 흐름상 '목(木)'과 '화(火)'의 조화가 두드러지며, 당신의 열정이 주변에 긍정적인 파급력을 미치게 됩니다. 이는 단순 성취를 넘어 조직 내에서 핵심적 역할을 수행하며 존경을 얻게 됨을 암시합니다. 완벽주의보다는 <strong>'여유와 수용'</strong>의 태도로 직관을 믿고 나아갈 때 더 큰 기회가 찾아올 것입니다.</p>`
+            `<p>현재 오행의 흐름상 '목(木)'과 '화(火)'의 조화가 두드러지며, 당신의 열정이 주변에 긍정적인 파급력을 미치게 됩니다. 완벽주의보다는 <strong>'여유와 수용'</strong>의 태도로 직관을 믿고 나아갈 때 더 큰 기회가 찾아올 것입니다.</p>`
         ].join("");
 
-        // 2. 금전운과 행운의 타이밍 - 약 300자
         const wealthText = [
             `<p>재물운에 있어 오늘은 <strong>'수확의 기쁨'</strong>을 누리는 시기입니다. 그간의 신용과 노력이 물질적 보상으로 전환되는 흐름이 강합니다. 특히 주변 지인으로부터 전달되는 정보가 예상치 못한 수익의 발판이 될 수 있으니, 경청하는 자세가 행운의 열쇠가 될 것입니다.</p>`,
             `<p>다만 안정성을 기반으로 한 기운이므로 무리한 투자는 피하는 것이 좋습니다. 추천된 로또 번호는 당신의 선천적 기운과 금전운이 교차하는 지점에서 추출된 것이니 즐거운 마음으로 활용해 보세요. 오후 3시에서 7시 사이, 서쪽에서 오는 기운이 금전적 활력을 더해주어 풍요로운 흐름을 완성할 것입니다.</p>`
         ].join("");
 
-        // 3. 일상 속 행운 가이드 - 약 300자
         const healthText = [
             `<p>오늘 ${name}님께 가장 필요한 에너지는 <strong>'물(水)'의 순환</strong>입니다. 아침의 미온수 한 잔과 명상은 창의적 에너지를 깨우는 활력소가 됩니다. 행운을 부르는 색상은 깊은 신뢰를 상징하는 <strong>네이비와 황금색</strong>이며, 작은 소품으로 포인트를 주는 것만으로도 나쁜 기운을 정화하고 길운을 유도할 수 있습니다.</p>`,
             `<p>식단으로는 제철 채소와 해산물을 추천하며, 자극적인 음식보다는 담백한 음식이 운을 맑게 유지해 줍니다. 잠들기 전 스스로에게 건네는 칭찬은 다음 날의 행운을 예약하는 강력한 주문이 됩니다. 우주는 이미 당신을 위해 최선의 선물을 준비하고 있으니 긍정적인 마음으로 주말의 기적을 맞이하십시오.</p>`
